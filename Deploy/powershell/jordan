@@ -1,0 +1,77 @@
+# Template for generating a gvalues file
+
+inf:
+  appinsights:
+    id: bf090983-32a5-4875-a060-7810afa0b14f
+  googleanalytics:
+    id: 
+  ingress:
+    game:
+      path: /game-manager
+    web:
+      path: /
+      uploaderPath: /_upload    
+  apiurls:
+    gameapiurl: http://game-manager:81
+    predictor: https://rpslsfuncapp72sct7dqvh7du.azurewebsites.net/api/challenger/move?code=ZpOoWOsyuqvOEc5FsZM8WshG9EEDmrFN7UdiNOROLDVq9SVx1uXI0Q==
+  web:
+    scale:
+      enabled: false
+      dp:
+        provider: 
+        constr: 
+        name: 
+    signalr:     
+  challengers:
+    dotnet: "app=dotnet-player"
+    node: "app=node-player"
+    python: "app=python-player"
+    php: "app=php-player"
+    java: "app=java-player"
+
+multiplayer:
+  leaderboard:
+    onlytwitter: true
+    top: 30
+
+auth:
+  twitter:
+    key: 
+    secret: 
+  playfab:
+    title: 
+    secret: 
+
+# Autoscaling global settings
+hpa:
+  activated: false # set to true to deploy HPA for services
+  cpu:
+    averageUtilization: 40 
+  minReplicas: 1
+  maxReplicas: 40
+
+# ACR login and password
+imageCredentials:
+  registry: rpslsacr72sct7dqvh7du
+  username: rpslsacr72sct7dqvh7du
+  password: t+BonA81jseQYXfjhqx4RrRmj0RqwY8n
+
+ingress:
+  enabled: true
+  tlsEnabled: false
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+    ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  hosts:
+    - 74dab8a675594f06a2e4.eastus2.aksapp.io
+  tls:
+    - hosts:
+      - 74dab8a675594f06a2e4.eastus2.aksapp.io
+      secretName: rpsls-tls-custom
+
+kv:
+  name: rpslskv72sct7dqvh7du
+  tenant: 6d0a7183-0f60-49c5-b350-23e3c110204e
+  clientid: 356329dd-1b32-4731-8e1e-53ed895f6a50
+
