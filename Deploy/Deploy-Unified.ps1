@@ -2,8 +2,8 @@ Param(
     [parameter(Mandatory=$true)][string]$resourceGroup,
     [parameter(Mandatory=$true)][string]$location,
     [parameter(Mandatory=$false)][string]$subscription="",
-    [parameter(Mandatory=$true)][string]$clientId,
-    [parameter(Mandatory=$true)][string]$password,
+#    [parameter(Mandatory=$true)][string]$clientId,
+#    [parameter(Mandatory=$true)][string]$password,
     [parameter(Mandatory=$false)][string]$spObjectId,
     [parameter(Mandatory=$false)][string]$tag="latest",
     [parameter(Mandatory=$false)][bool]$deployGlobalSecret=$false
